@@ -113,5 +113,3 @@ df = pd.DataFrame({'std': stds, 'mean': means, 'median': medians}, index=indices
 print(df)
 
 plt.show()
-
-print('hejhej')
