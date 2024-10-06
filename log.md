@@ -1,5 +1,9 @@
 # Laboration log ExpPhys/TIF295
 
+## Jonatan Haraldsson (jonhara) & Oscar Stommendal (oscarsto)
+
+=====================================================================
+
 ## Wednesday 25/9
 
 - **_8.00_** Short introduction
