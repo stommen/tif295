@@ -1,0 +1,48 @@
+[Filenames]
+1000x_L_4_2_real 2024-09-25 12-17-17.avi
+1000x_L_4_2_real 2024-09-25 12-19-10.avi
+1000x_L_4_2_real 2024-09-25 12-20-47.avi
+1000x_L_4_2_real 2024-09-25 12-22-16.avi
+1000x_L_4_2_real 2024-09-25 12-23-42.avi
+
+[Details]
+CaptureAppBuild=NTA 3.3 Dev Build 3.3.301
+Operator=
+Pretreatment=
+SampleName=
+Diluent=
+Remarks=
+TimeCaptured=12:16:28  25/09/2024
+ModelNo=5
+ScriptName=SOP Standard Measurement 12-16-28PM 25Sep2024.txt
+
+[CaptureSettings]
+PixelSize=186,186,186,186,186
+Temperature=20.841,20.902,20.893,20.942,20.928
+Viscosity=0.97977,0.978329,0.978541,0.977385,0.977715
+WaterViscosity=1,1,1,1,1
+DilutionFactor=1000,1000,1000,1000,1000
+CameraType=4,4,4,4,4
+CaptureMode=0,0,0,0,0
+FramesPerSecond=24.9825,24.9825,24.9825,24.9825,24.9825
+TotalFrames=1498,1498,1498,1498,1498
+Shutter=17.4,17.4,17.4,17.4,17.4
+ShutterB=0,0,0,0,0
+SliderShutter=696,696,696,696,696
+SliderShutterB=0,0,0,0,0
+Gain=73,73,73,73,73
+GainB=0,0,0,0,0
+CameraHistogramMin=0,0,0,0,0
+CameraHistogramMax=16380,16380,16380,16380,16380
+CameraHistogramMinB=0,0,0,0,0
+CameraHistogramMaxB=0,0,0,0,0
+CameraLevel=10,10,10,10,10
+StagePosition=0,0,0,0,0
+FocusPosition=0,0,0,0,0
+SyringePumpSpeed=0,0,0,0,0
+UsingOldCameraLevels=0,0,0,0,0
+LaserType=3,3,3,3,3
+
+[CurrentView]
+Selected=1,1,1,1,1
+

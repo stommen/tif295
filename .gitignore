@@ -1,3 +1,5 @@
 .mypy_cache/
 labb2/1000x_H_4_2
 labb2/1000x_l_4_2
+labb2/*_real/*.avi
+TIF295_2024/
