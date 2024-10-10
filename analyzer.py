@@ -32,7 +32,7 @@ def plotter(axis, data, fit, hist_color='tab:orange', fit_color='tab:blue'):
     axis.plot(x, log_pdf, color=fit_color, linestyle='-', lw=2.5, label='Log-normal fit')
     axis.vlines(x=fit[2], ymin=0, 
                 ymax=stats.lognorm.pdf(fit[2], fit[0], fit[1], fit[2]) * max_counts / pdf_max, 
-                color='salmon', linestyle='-', lw=2.5, label='Fit mean')
+                color='tab:orange', linestyle='-', lw=2.5, label='Fit mean')
     
     fit_mean = stats.lognorm.mean(fit[0], fit[1], fit[2])
     fit_std = stats.lognorm.std(fit[0], fit[1], fit[2])
@@ -83,11 +83,14 @@ def exp_info(sub_folder):
     return dilution, stab, pH, mix_method
 
 stds, means, medians, indices = [], [], [], []
+
 for sub_folder in os.listdir(data_folder):
     if sub_folder.endswith('real'):
         plt.figure(figsize=(6, 5))
         ax = plt.subplot()
         sizes = np.array([])
+        intensities = np.array([])
+        sizes_big = np.array([])
         # diff_coeff_list = []
         for file in os.listdir(data_folder + sub_folder):
             if file.endswith('ParticleData.csv'):
@@ -95,10 +98,12 @@ for sub_folder in os.listdir(data_folder):
                 # Filter by 'Included in distribution' == True
                 data_df = data_df[data_df['Included in distribution?']]
                 sizes = np.hstack((sizes, np.array(data_df['Size/nm'].values)))
+                sizes_big = np.hstack((sizes_big, np.array(data_df['Size/nm'].values)))
+                intensities = np.hstack((intensities, np.array(data_df['Ln(Adjusted intensity)/AU'].values)))
                 # diff_coeff_list.append(list(data_df['Diffusion coefficient/nm^2 s^-1']))
 
         fit = stats.lognorm.fit(sizes) 
-        fit_mean, fit_std, fit_median = plotter(ax, sizes, fit, fit_color='k', hist_color='dodgerblue')
+        fit_mean, fit_std, fit_median = plotter(ax, sizes, fit, fit_color='k', hist_color='tab:blue')
         plot_custom(ax, sub_folder)
 
         stds.append(fit_std)
@@ -109,6 +114,7 @@ for sub_folder in os.listdir(data_folder):
         if save:
             plt.savefig('figs/' + sub_folder + '.pdf', bbox_inches='tight')
 
+# plt.scatter(sizes_big, intensities, color='tab:blue', label='Data', alpha=0.5)
 df = pd.DataFrame({'std': stds, 'mean': means, 'median': medians}, index=indices)
 print(df)
 
