@@ -17,7 +17,7 @@ plt.rcParams['font.size'] = font_size
 
 # Load the data
 data_folder = 'labb2/'
-save = False
+save = True
 
 # Seaborn style
 sns.set_style('whitegrid', {'axes.facecolor': '0.95'})
@@ -30,12 +30,15 @@ def plotter(axis, data, fit, hist_color='tab:orange', fit_color='tab:blue'):
     pdf_max = log_pdf.max()
     log_pdf = log_pdf * max_counts / pdf_max
     axis.plot(x, log_pdf, color=fit_color, linestyle='-', lw=2.5, label='Log-normal fit')
-    axis.vlines(x=fit[2], ymin=0, 
-                ymax=stats.lognorm.pdf(fit[2], fit[0], fit[1], fit[2]) * max_counts / pdf_max, 
-                color='tab:orange', linestyle='-', lw=2.5, label='Fit mean')
-    
     fit_mean = stats.lognorm.mean(fit[0], fit[1], fit[2])
     fit_std = stats.lognorm.std(fit[0], fit[1], fit[2])
+    axis.vlines(x=fit_mean, ymin=0, 
+                ymax=stats.lognorm.pdf(fit_mean, fit[0], fit[1], fit[2]) * max_counts / pdf_max, 
+                color='tab:orange', linestyle='-', lw=2.5)#, label='Fit mean')
+    axis.vlines(x=fit_mean + fit_std, ymin=0, 
+                ymax=stats.lognorm.pdf(fit_mean + fit_std, fit[0], fit[1], fit[2]) * max_counts / pdf_max, 
+                color='tab:orange', linestyle='--', lw=2.5)
+    
     fit_median = stats.lognorm.median(fit[0], fit[1], fit[2])
 
     return fit_mean, fit_std, fit_median
